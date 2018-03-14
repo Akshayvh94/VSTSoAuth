@@ -190,6 +190,7 @@
     <Content Include="Views\Home\Callback.cshtml" />
     <Content Include="Views\Home\Verify.cshtml" />
     <Content Include="Views\Home\SignIn.cshtml" />
+    <Content Include="VSTS Authentication using oAuth 2.0.docx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
