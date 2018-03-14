@@ -1,0 +1,2 @@
+# VSTSoAuth
+Implementation of oAuth
