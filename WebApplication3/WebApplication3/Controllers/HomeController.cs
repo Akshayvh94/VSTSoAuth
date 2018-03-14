@@ -97,6 +97,12 @@ namespace WebApplication3.Controllers
                 return View();
             }
         }
+        /// <summary>
+        /// Get Account associalted with the logged in user
+        /// </summary>
+        /// <param name="MemberID"></param>
+        /// <param name="Details"></param>
+        /// <returns></returns>
         public Accounts.AccountList GetAccounts(string MemberID, AccessDetails Details)
         {
             if (Session["PAT"] != null)
@@ -133,7 +139,13 @@ namespace WebApplication3.Controllers
             }
             return Accounts;
         }
-
+        /// <summary>
+        /// Creates Request URL
+        /// </summary>
+        /// <param name="appSecret"></param>
+        /// <param name="authCode"></param>
+        /// <param name="callbackUrl"></param>
+        /// <returns></returns>
         public string GenerateRequestPostData(string appSecret, string authCode, string callbackUrl)
         {
             return String.Format("client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion={0}&grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion={1}&redirect_uri={2}",
@@ -142,7 +154,11 @@ namespace WebApplication3.Controllers
                         callbackUrl
                  );
         }
-
+        /// <summary>
+        /// Get Access token
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public AccessDetails GetAccessToken(string body)
         {
             var client = new HttpClient();
@@ -162,7 +178,11 @@ namespace WebApplication3.Controllers
             }
             return new AccessDetails();
         }
-
+        /// <summary>
+        /// Get User profile
+        /// </summary>
+        /// <param name="accessDetails"></param>
+        /// <returns></returns>
         public ProfileDetails GetProfile(AccessDetails accessDetails)
         {
             ProfileDetails Profile = new ProfileDetails();
@@ -201,6 +221,11 @@ namespace WebApplication3.Controllers
             }
             return Profile;
         }
+        /// <summary>
+        /// Refresh the access token
+        /// </summary>
+        /// <param name="refreshToken"></param>
+        /// <returns></returns>
         public AccessDetails Refresh_AccessToken(string refreshToken)
         {
             using (var client = new HttpClient())
@@ -235,7 +260,9 @@ namespace WebApplication3.Controllers
                 }
             }
         }
-
+        /// <summary>
+        /// Model used
+        /// </summary>
 
         public class AccessDetails
         {
