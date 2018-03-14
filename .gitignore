@@ -286,3 +286,6 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/WebApplication3/WebApplication3/Views/Home/About.cshtml
+/WebApplication3/WebApplication3/Views/Home/Contact.cshtml
+/WebApplication3/WebApplication3/Views/Home/Index.cshtml
